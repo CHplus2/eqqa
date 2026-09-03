@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Leaf } from "lucide-react";
 import { CTAButton } from "./CTAButton";
 
 const navItems = [
@@ -18,6 +18,9 @@ export function Header({ business }) {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="logo" aria-label={`${business.name} home`}>
+          <span className="logo-mark" aria-hidden="true">
+            <Leaf size={20} />
+          </span>
           <span className="logo-text">{business.name}</span>
         </Link>
 

@@ -1,10 +1,12 @@
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, Leaf, TrendingUp, Trophy } from "lucide-react";
 import { CTAButton } from "../components/CTAButton";
 import { PlaceholderBadge } from "../components/PlaceholderBadge";
 
 export function About({ data }) {
   const { business, gallery } = data;
-  const storePhoto = gallery.find((item) => item.category === "store");
+  const behindScenesPhoto = gallery.find(
+    (item) => item.category === "behind_the_scenes"
+  );
 
   return (
     <main>
@@ -12,7 +14,7 @@ export function About({ data }) {
         <div className="container">
           <h1>About {business.name}</h1>
           <p className="page-hero-lead">
-            A local business serving kuih and snacks to the community.
+            Produk dari Sibu, Sarawak — authentic traditional kuih and snacks.
           </p>
         </div>
       </section>
@@ -22,41 +24,59 @@ export function About({ data }) {
           <div className="about-content">
             <h2>Who we are</h2>
             <p>{business.description}</p>
-            {business.description.startsWith("[") && (
-              <p className="placeholder-text">
-                <PlaceholderBadge text="Needs confirmation" /> This section
-                should tell the real story of the business, how it started, and
-                what makes it local.
-              </p>
-            )}
 
             <h2>What we believe in</h2>
             <ul className="about-beliefs">
-              <li>Fresh, home-style kuih and snacks.</li>
-              <li>Friendly, personal service.</li>
-              <li>Fair prices for the local community.</li>
+              <li>Authentic traditional taste, made the traditional way.</li>
+              <li>Handmade products, crafted carefully with attention to customer satisfaction.</li>
+              <li>{business.claim_1} — {business.claim_2.toLowerCase()}.</li>
+              <li>Affordable pricing for everyone: {business.target_customers.toLowerCase()}.</li>
             </ul>
-            <p className="placeholder-text">
-              <PlaceholderBadge text="To confirm" /> Replace the above values
-              with the actual principles the business owner wants to
-              communicate.
-            </p>
 
-            <h2>Why customers trust us</h2>
+            <h2>Our logo</h2>
+            <ul className="about-beliefs">
+              <li>
+                <Leaf size={18} aria-hidden="true" className="about-inline-icon" />
+                The leaf represents our fresh, natural products.
+              </li>
+              <li>
+                <TrendingUp size={18} aria-hidden="true" className="about-inline-icon" />
+                The arrow represents business growth.
+              </li>
+              <li>Green stands for freshness.</li>
+              <li>Gold stands for quality and success.</li>
+            </ul>
+
+            <h2>Our achievement</h2>
             <p>
-              {business.name} has built trust through consistent quality and
-              personal service. [CONFIRM REVIEWS / YEARS IN BUSINESS /
-              CERTIFICATIONS / LOCAL PRESENCE]
+              <Trophy size={18} aria-hidden="true" className="about-inline-icon" />
+              {business.achievement}.{" "}
+              <span className="placeholder-text">
+                [TO BE CONFIRMED: exact details/name of the competition]
+              </span>
             </p>
 
             <div className="about-contact">
               <div>
                 <MapPin size={18} aria-hidden="true" />
-                <span>{business.address}</span>
+                <span>
+                  {business.location} —{" "}
+                  <span className="placeholder-text">exact address [TO BE CONFIRMED]</span>
+                </span>
               </div>
               <div>
                 <Phone size={18} aria-hidden="true" />
-                <a href={`tel:${business.phone}`}>{business.phone}</a>
+                <span>
+                  <a href={`tel:${business.phone}`}>{business.phone}</a>
+                  {business.phone_secondary && (
+                    <>
+                      {" / "}
+                      <a href={`tel:${business.phone_secondary}`}>
+                        {business.phone_secondary}
+                      </a>
+                    </>
+                  )}
+                </span>
               </div>
               <div>
                 <Clock size={18} aria-hidden="true" />
@@ -70,15 +90,17 @@ export function About({ data }) {
           </div>
 
           <div className="about-image">
-            {storePhoto?.image_url ? (
+            {behindScenesPhoto?.image_url ? (
               <img
-                src={storePhoto.image_url}
-                alt={storePhoto.caption}
+                src={behindScenesPhoto.image_url}
+                alt={behindScenesPhoto.caption}
                 className="about-image-img"
               />
             ) : (
               <div className="about-image-placeholder">
-                <span>[REAL PHOTO NEEDED: Store / Team / Owner]</span>
+                <span>
+                  [REAL PHOTO NEEDED: Owner / team / handmade preparation]
+                </span>
               </div>
             )}
           </div>

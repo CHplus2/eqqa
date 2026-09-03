@@ -1,8 +1,9 @@
 # Eqqa Enterprise Website — Content Checklist
 
 This website is built with **Django** (backend) and **React** (frontend).
-All unconfirmed business facts are marked with `[CONFIRM ...]` placeholders
-or yellow "To confirm" / "Photo needed" badges in the interface.
+Confirmed information from the beneficiary interview is live. Anything not
+confirmed is marked `[TO BE CONFIRMED]` or shown with a yellow
+"To confirm" / "Photo needed" badge in the interface.
 
 ## How to run locally
 
@@ -21,62 +22,48 @@ or yellow "To confirm" / "Photo needed" badges in the interface.
    - Username: `admin`
    - Password: `password123`
 
-## Information to confirm before launch
+## Confirmed information (live on the site)
 
-### Business identity
-- [ ] Business name (currently: Eqqa Enterprise)
-- [ ] Business category / tagline
-- [ ] One-sentence value proposition
-- [ ] Full business description / story
-- [ ] Brand colours (current palette is a placeholder suggestion)
+- [x] Business name: Eqqa Enterprise
+- [x] Business identity: Produk dari Sibu, Sarawak
+- [x] Location: Sibu, Sarawak
+- [x] Products & prices: Kuih Cuan RM25, Kuih Jala RM25, Kacang Pedas Manis RM10,
+      Kerepek Pisang Panggang RM25, Kerepek Ubi Panggang RM25, Kuih Meruku RM15
+- [x] Target customers: adults, children, families, and groups of friends
+- [x] Selling points: authentic traditional taste, handmade, made carefully with
+      attention to customer satisfaction, affordable pricing
+- [x] Product claims: 100% fresh ingredients, no preservatives
+- [x] Ordering channels: WhatsApp, TikTok, events
+- [x] Phone numbers: 011-1408 0050 and 013-566 9234
+- [x] Delivery: self-delivery, runner, delivery by bus
+- [x] Brand colours: green (freshness) and gold (quality and success)
+- [x] Logo meaning: leaf = fresh/natural, arrow = business growth
+- [x] Achievement: Champion, Kuih Cap competition (Sarawak district level),
+      Wellbest Carnival 2025
+- [x] Social media names: Facebook — Erica Sandra, TikTok — Eqqa Enterprise
 
-### Contact & location
-- [ ] Phone number
-- [ ] WhatsApp number (used for primary CTA)
-- [ ] Address
-- [ ] Email (optional)
-- [ ] Facebook URL (optional)
-- [ ] Instagram URL (optional)
-- [ ] Opening hours
-- [ ] Google Maps embed / location directions
+## Still [TO BE CONFIRMED]
 
-### Trust evidence
-- [ ] Years in business
-- [ ] Review / rating
-- [ ] Number of local customers / orders
-- [ ] Certifications (e.g. halal, food handling)
-- [ ] Real testimonials with customer permission
-
-### Products / services
-- [ ] Offering 1: name, description, key benefit, price, options, availability
-- [ ] Offering 2: name, description, key benefit, price, options, availability
-- [ ] Offering 3: name, description, key benefit, price, options, availability
-- [ ] Additional offerings (add in Django admin)
-
-### Photos
-- [ ] Hero / main business photo
-- [ ] Product photos (minimum one per offering)
-- [ ] Store / location photo
-- [ ] Behind-the-scenes photo
-- [ ] Customer / event photo (with permission)
-
-### Customer questions (FAQs)
-- [ ] Location
-- [ ] Opening hours
-- [ ] Payment methods
-- [ ] Delivery area / method
-- [ ] Event orders
-- [ ] Lead time / notice required
+- [ ] Exact physical business address
+- [ ] Exact Facebook URL
+- [ ] Exact TikTok URL
+- [ ] Which phone number is the primary WhatsApp ordering number
+- [ ] Whether all six products are available all the time
+- [ ] Whether the listed prices are per package, container, etc.
+- [ ] Exact delivery areas
+- [ ] Delivery fees
+- [ ] Exact details/name of the "Kuih Cap" competition
+- [ ] Whether "Produk dari Sibu Sarawak" is an official tagline
+- [ ] Whether the website should support online ordering or simply direct
+      customers to WhatsApp
+- [ ] Business opening hours, if applicable
 - [ ] Halal status
-- [ ] Ordering process
-
-### Why choose us
-- [ ] Reason 1 with short explanation
-- [ ] Reason 2 with short explanation
-- [ ] Reason 3 with short explanation
+- [ ] Payment methods
+- [ ] Real logo file (currently a leaf icon + text treatment)
+- [ ] Real photos: each product, owner/team, behind-the-scenes, events
+      (including Wellbest Carnival 2025)
 
 ## Notes
-- Do not publish fake testimonials, reviews, prices, certifications, or claims.
-- Replace every `[CONFIRM ...]` placeholder with verified information.
+- Do not publish fake testimonials, reviews, certifications, or claims.
 - Upload real business photos via the Django admin for Products and Gallery.
 - After updating the React front-end, rebuild with `cd frontend && npm run build`.

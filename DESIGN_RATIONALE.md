@@ -1,10 +1,24 @@
 # Eqqa Enterprise Website — Design Rationale
 
 ## Project overview
-- **Business:** Eqqa Enterprise
-- **Category:** Kuih & Snacks
+- **Business:** Eqqa Enterprise — Produk dari Sibu, Sarawak
+- **Category:** Kuih & Snacks (authentic traditional)
 - **Stack:** Django backend + React frontend
-- **Goal:** A simple, trustworthy, mobile-first website that helps real customers understand the business, find answers, and order via WhatsApp.
+- **Goal:** A simple, trustworthy, mobile-first website where customers
+  discover Eqqa Enterprise's range of authentic traditional products and
+  order via WhatsApp, TikTok, or at events.
+
+## Confirmed brand decisions (from beneficiary interview)
+- **Green = freshness**, **Gold = quality and success** — the site palette
+  uses these confirmed brand colours.
+- **Logo meaning:** leaf = fresh/natural products, arrow = business growth.
+  A leaf icon + text treatment is used until the real logo file is provided.
+- **Trust strip** uses only confirmed evidence: Champion (Kuih Cap
+  competition, Sarawak district level, Wellbest Carnival 2025), 100% fresh
+  ingredients, no preservatives.
+- **Products:** all six confirmed products are shown with confirmed prices.
+  Price unit, availability, and per-product descriptions remain
+  `[TO BE CONFIRMED]`.
 
 ## 1. Website sitemap
 ```

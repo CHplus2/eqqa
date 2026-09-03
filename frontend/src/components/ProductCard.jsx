@@ -3,6 +3,8 @@ import { PlaceholderBadge } from "./PlaceholderBadge";
 
 export function ProductCard({ product, business }) {
   const isPlaceholder = product.name.startsWith("[");
+  const optionsPending = product.options && product.options.startsWith("[");
+  const availabilityPending = product.availability && product.availability.startsWith("[");
 
   return (
     <article className="product-card card">
@@ -16,7 +18,7 @@ export function ProductCard({ product, business }) {
           />
         ) : (
           <div className="product-image-placeholder">
-            <span>[REAL PHOTO NEEDED]</span>
+            <span>[REAL PHOTO NEEDED: {product.name}]</span>
           </div>
         )}
       </div>
@@ -27,16 +29,26 @@ export function ProductCard({ product, business }) {
         </h3>
         <p className="product-description">{product.description}</p>
         <p className="product-benefit">
-          <strong>Best for:</strong> {product.benefit}
+          <strong>Why you'll love it:</strong> {product.benefit}
         </p>
-        {product.options && (
+        {optionsPending ? (
+          <p className="product-options placeholder-text">
+            <PlaceholderBadge text="To confirm" /> Price unit (per package / container)
+          </p>
+        ) : product.options ? (
           <p className="product-options text-muted">
             <strong>Options:</strong> {product.options}
           </p>
-        )}
+        ) : null}
         <div className="product-meta">
           <span className="product-price">{product.price}</span>
-          <span className="product-availability">{product.availability}</span>
+          {availabilityPending ? (
+            <span className="product-availability placeholder-text">
+              Availability [TO BE CONFIRMED]
+            </span>
+          ) : (
+            <span className="product-availability">{product.availability}</span>
+          )}
         </div>
         <CTAButton
           href={business.primary_cta_link}

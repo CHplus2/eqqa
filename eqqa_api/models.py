@@ -4,21 +4,42 @@ from django.db import models
 class BusinessInfo(models.Model):
     """Single-row model storing confirmed business details."""
     name = models.CharField(max_length=200, default="Eqqa Enterprise")
-    category = models.CharField(max_length=200, default="[CONFIRM BUSINESS CATEGORY]")
-    tagline = models.TextField(default="[CONFIRM TAGLINE]")
-    description = models.TextField(default="[CONFIRM BUSINESS DESCRIPTION]")
-    location = models.CharField(max_length=300, default="[CONFIRM LOCATION]")
-    phone = models.CharField(max_length=50, default="[CONFIRM PHONE]")
-    whatsapp = models.CharField(max_length=50, default="[CONFIRM WHATSAPP]")
-    address = models.TextField(default="[CONFIRM ADDRESS]")
-    email = models.EmailField(blank=True, default="[CONFIRM EMAIL]")
-    social_facebook = models.URLField(blank=True, default="[CONFIRM FACEBOOK]")
-    social_instagram = models.URLField(blank=True, default="[CONFIRM INSTAGRAM]")
-    opening_hours = models.TextField(default="[CONFIRM OPENING HOURS]")
-    years_in_business = models.CharField(max_length=50, default="[CONFIRM YEARS]")
-    review_rating = models.CharField(max_length=10, default="[CONFIRM RATING]")
+    category = models.CharField(max_length=200, default="Kuih & Snacks")
+    tagline = models.TextField(default="[TO BE CONFIRMED]")
+    description = models.TextField(default="[TO BE CONFIRMED]")
+    location = models.CharField(max_length=300, default="Sibu, Sarawak")
+    phone = models.CharField(max_length=50, default="011-1408 0050")
+    phone_secondary = models.CharField(max_length=50, blank=True, default="013-566 9234")
+    whatsapp = models.CharField(max_length=50, default="[TO BE CONFIRMED: primary WhatsApp number]")
+    address = models.TextField(default="[TO BE CONFIRMED]")
+    email = models.EmailField(blank=True, default="[TO BE CONFIRMED]")
+    social_facebook = models.URLField(blank=True, default="[TO BE CONFIRMED]")
+    facebook_name = models.CharField(max_length=200, blank=True, default="Erica Sandra")
+    social_tiktok = models.URLField(blank=True, default="[TO BE CONFIRMED]")
+    tiktok_name = models.CharField(max_length=200, blank=True, default="Eqqa Enterprise")
+    social_instagram = models.URLField(blank=True, default="[TO BE CONFIRMED]")
+    opening_hours = models.TextField(default="[TO BE CONFIRMED]")
+    years_in_business = models.CharField(max_length=50, default="[TO BE CONFIRMED]")
+    review_rating = models.CharField(max_length=10, default="[TO BE CONFIRMED]")
+    target_customers = models.CharField(
+        max_length=300, blank=True,
+        default="Adults, children, families, and groups of friends",
+    )
+    ordering_channels = models.CharField(
+        max_length=300, blank=True, default="WhatsApp, TikTok, and events",
+    )
+    delivery_methods = models.CharField(
+        max_length=300, blank=True,
+        default="Self-delivery, runner, or delivery by bus",
+    )
+    claim_1 = models.CharField(max_length=200, blank=True, default="100% fresh ingredients")
+    claim_2 = models.CharField(max_length=200, blank=True, default="No preservatives")
+    achievement = models.CharField(
+        max_length=300, blank=True,
+        default="Champion, Kuih Cap competition (Sarawak district level), Wellbest Carnival 2025",
+    )
     primary_cta_label = models.CharField(max_length=100, default="Order on WhatsApp")
-    primary_cta_link = models.URLField(default="https://wa.me/[CONFIRM_WHATSAPP_NUMBER]")
+    primary_cta_link = models.URLField(default="https://wa.me/[TO BE CONFIRMED]")
 
     class Meta:
         verbose_name = "Business Info"

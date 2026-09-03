@@ -7,10 +7,10 @@ export function Products({ data }) {
     <main>
       <section className="page-hero">
         <div className="container">
-          <h1>Our Menu</h1>
+          <h1>Our Products</h1>
           <p className="page-hero-lead">
-            Kuih and snacks made fresh. Prices, options, and availability to be
-            confirmed before launch.
+            Authentic traditional kuih and snacks from Sibu, Sarawak — handmade
+            with 100% fresh ingredients and no preservatives.
           </p>
         </div>
       </section>

@@ -1,8 +1,10 @@
-import { MapPin, Phone, MessageCircle, Clock, Mail } from "lucide-react";
+import { MapPin, Phone, Clock, Truck } from "lucide-react";
 import { CTAButton } from "./CTAButton";
 
 export function Footer({ business }) {
   const currentYear = new Date().getFullYear();
+  const hasFacebookUrl = business.social_facebook && !business.social_facebook.startsWith("[");
+  const hasTiktokUrl = business.social_tiktok && !business.social_tiktok.startsWith("[");
 
   return (
     <footer className="site-footer">
@@ -10,7 +12,7 @@ export function Footer({ business }) {
         <div className="footer-grid">
           <div className="footer-brand">
             <h3 className="footer-logo">{business.name}</h3>
-            <p className="text-muted">{business.category}</p>
+            <p className="text-muted">Produk dari Sibu, Sarawak</p>
             <p className="footer-tagline">{business.tagline}</p>
           </div>
 
@@ -21,26 +23,12 @@ export function Footer({ business }) {
                 <Phone size={18} aria-hidden="true" />
                 <a href={`tel:${business.phone}`}>{business.phone}</a>
               </li>
-              <li>
-                <MessageCircle size={18} aria-hidden="true" />
-                <a href={business.primary_cta_link}>WhatsApp</a>
-              </li>
-              {business.email && !business.email.startsWith("[") && (
+              {business.phone_secondary && (
                 <li>
-                  <Mail size={18} aria-hidden="true" />
-                  <a href={`mailto:${business.email}`}>{business.email}</a>
+                  <Phone size={18} aria-hidden="true" />
+                  <a href={`tel:${business.phone_secondary}`}>{business.phone_secondary}</a>
                 </li>
               )}
-            </ul>
-          </div>
-
-          <div className="footer-location">
-            <h4>Location</h4>
-            <ul className="footer-list">
-              <li>
-                <MapPin size={18} aria-hidden="true" />
-                <span>{business.address}</span>
-              </li>
               <li>
                 <Clock size={18} aria-hidden="true" />
                 <span>{business.opening_hours}</span>
@@ -48,23 +36,41 @@ export function Footer({ business }) {
             </ul>
           </div>
 
+          <div className="footer-location">
+            <h4>Location & delivery</h4>
+            <ul className="footer-list">
+              <li>
+                <MapPin size={18} aria-hidden="true" />
+                <span>{business.location}</span>
+              </li>
+              <li>
+                <Truck size={18} aria-hidden="true" />
+                <span>{business.delivery_methods}</span>
+              </li>
+            </ul>
+          </div>
+
           <div className="footer-social">
             <h4>Follow us</h4>
             <ul className="footer-list">
-              {business.social_facebook && !business.social_facebook.startsWith("[") && (
-                <li>
+              <li>
+                {hasFacebookUrl ? (
                   <a href={business.social_facebook} target="_blank" rel="noopener noreferrer">
-                    Facebook
+                    Facebook: {business.facebook_name}
                   </a>
-                </li>
-              )}
-              {business.social_instagram && !business.social_instagram.startsWith("[") && (
-                <li>
-                  <a href={business.social_instagram} target="_blank" rel="noopener noreferrer">
-                    Instagram
+                ) : (
+                  <span>Facebook: {business.facebook_name} [URL TO BE CONFIRMED]</span>
+                )}
+              </li>
+              <li>
+                {hasTiktokUrl ? (
+                  <a href={business.social_tiktok} target="_blank" rel="noopener noreferrer">
+                    TikTok: {business.tiktok_name}
                   </a>
-                </li>
-              )}
+                ) : (
+                  <span>TikTok: {business.tiktok_name} [URL TO BE CONFIRMED]</span>
+                )}
+              </li>
             </ul>
             <CTAButton href={business.primary_cta_link} variant="primary">
               {business.primary_cta_label}

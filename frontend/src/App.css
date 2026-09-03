@@ -51,7 +51,20 @@ main {
 .logo {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   text-decoration: none;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-primary-700);
+  color: #fff;
+  flex-shrink: 0;
 }
 
 .logo-text {
@@ -187,6 +200,13 @@ main {
 
 .hero-description {
   color: var(--color-text-muted);
+  margin-bottom: 12px;
+  max-width: 540px;
+}
+
+.hero-audience {
+  color: var(--color-primary-700);
+  font-weight: 500;
   margin-bottom: 20px;
   max-width: 540px;
 }
@@ -601,6 +621,19 @@ main {
   max-width: 560px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.final-cta-phones {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.about-inline-icon {
+  vertical-align: -3px;
+  margin-right: 6px;
+  color: var(--color-primary-700);
 }
 
 /* Page hero */

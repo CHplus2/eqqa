@@ -1,18 +1,20 @@
-import { MapPin, Star, Clock, Users } from "lucide-react";
+import { MapPin, Trophy, Leaf, ShieldCheck } from "lucide-react";
 import { CTAButton } from "../components/CTAButton";
 import { ProductCard } from "../components/ProductCard";
 import { GalleryCard } from "../components/GalleryCard";
 import { FAQItem } from "../components/FAQItem";
-import { PlaceholderBadge } from "../components/PlaceholderBadge";
 
 export function Home({ data }) {
   const { business, featured_products, gallery, faqs, why_choose } = data;
 
+  // Trust strip uses only confirmed evidence from the beneficiary interview.
   const trustItems = [
-    { icon: Star, label: business.review_rating, sublabel: "Rating" },
-    { icon: Clock, label: business.years_in_business, sublabel: "In business" },
-    { icon: Users, label: "Local customers", sublabel: "Served" },
-  ].filter((item) => !item.label.startsWith("["));
+    { icon: Trophy, label: business.achievement, sublabel: "Award" },
+    { icon: Leaf, label: business.claim_1, sublabel: "Product claim" },
+    { icon: ShieldCheck, label: business.claim_2, sublabel: "Product claim" },
+  ].filter(
+    (item) => item.label && !item.label.startsWith("[")
+  );
 
   const topFAQs = faqs.slice(0, 5);
   const topGallery = gallery.slice(0, 4);
@@ -23,12 +25,15 @@ export function Home({ data }) {
       <section className="hero-section" aria-labelledby="hero-title">
         <div className="container hero-inner">
           <div className="hero-content">
-            <p className="hero-category">{business.category}</p>
+            <p className="hero-category">Produk dari Sibu, Sarawak</p>
             <h1 id="hero-title" className="hero-title">
               {business.name}
             </h1>
             <p className="hero-tagline">{business.tagline}</p>
             <p className="hero-description">{business.description}</p>
+            <p className="hero-audience">
+              For {business.target_customers.toLowerCase()}.
+            </p>
 
             <div className="hero-location">
               <MapPin size={20} aria-hidden="true" />
@@ -40,7 +45,7 @@ export function Home({ data }) {
                 {business.primary_cta_label}
               </CTAButton>
               <CTAButton href="/products" variant="secondary" icon={false}>
-                View menu
+                View products
               </CTAButton>
             </div>
           </div>
@@ -61,7 +66,7 @@ export function Home({ data }) {
         </div>
       </section>
 
-      {/* Trust strip */}
+      {/* Trust strip — confirmed evidence only */}
       {trustItems.length > 0 && (
         <section className="trust-strip" aria-label="Trust evidence">
           <div className="container">
@@ -84,10 +89,10 @@ export function Home({ data }) {
       <section className="section" aria-labelledby="products-title">
         <div className="container">
           <div className="section-title">
-            <h2 id="products-title">Our Kuih & Snacks</h2>
+            <h2 id="products-title">Our Authentic Traditional Products</h2>
             <p>
-              A small selection of what we make. Prices and flavours to be
-              confirmed before publishing.
+              Handmade with 100% fresh ingredients and no preservatives.
+              Discover our range from Sibu, Sarawak.
             </p>
           </div>
           <div className="products-grid">
@@ -101,27 +106,23 @@ export function Home({ data }) {
           </div>
           <div className="text-center mt-3">
             <CTAButton href="/products" variant="secondary" icon={false}>
-              See full menu
+              See all products
             </CTAButton>
           </div>
         </div>
       </section>
 
-      {/* Why choose us */}
+      {/* Why choose us — confirmed selling points */}
       <section className="section section-alt" aria-labelledby="why-title">
         <div className="container">
           <div className="section-title">
             <h2 id="why-title">Why customers choose us</h2>
-            <p>These reasons need to be confirmed with the business owner.</p>
           </div>
           <div className="why-grid">
             {why_choose.map((reason) => (
               <div key={reason.id} className="why-card card">
                 <h3>{reason.title}</h3>
                 <p>{reason.explanation}</p>
-                {reason.title.startsWith("[") && (
-                  <PlaceholderBadge text="To confirm" />
-                )}
               </div>
             ))}
           </div>
@@ -133,7 +134,7 @@ export function Home({ data }) {
         <div className="container">
           <div className="section-title">
             <h2 id="gallery-title">Gallery</h2>
-            <p>Real photos work better than stock images. Add business photos here.</p>
+            <p>Real photos of our handmade products and events.</p>
           </div>
           <div className="gallery-grid">
             {topGallery.map((item) => (
@@ -148,40 +149,43 @@ export function Home({ data }) {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* How to order — confirmed channels and delivery methods */}
       <section className="section section-alt" aria-labelledby="how-title">
         <div className="container">
           <div className="section-title">
             <h2 id="how-title">How to order</h2>
-            <p>Simple steps for first-time customers.</p>
+            <p>Order through {business.ordering_channels}.</p>
           </div>
           <ol className="steps-list">
             <li className="step">
               <span className="step-number">1</span>
               <div>
-                <h3>Choose your kuih or snack</h3>
-                <p>Browse our menu and pick what you like.</p>
+                <h3>Choose your product</h3>
+                <p>Browse our range of authentic traditional kuih and snacks.</p>
               </div>
             </li>
             <li className="step">
               <span className="step-number">2</span>
               <div>
-                <h3>Message us on WhatsApp</h3>
-                <p>Tell us what you want and when you need it.</p>
+                <h3>Contact us</h3>
+                <p>Reach us on WhatsApp or TikTok, or find us at events.</p>
               </div>
             </li>
             <li className="step">
               <span className="step-number">3</span>
               <div>
                 <h3>Confirm your order</h3>
-                <p>We confirm availability, price, and pickup or delivery.</p>
+                <p>We confirm availability and arrange your delivery method.</p>
               </div>
             </li>
             <li className="step">
               <span className="step-number">4</span>
               <div>
-                <h3>Pick up or receive delivery</h3>
-                <p>Collect your order or arrange delivery. [CONFIRM DELIVERY AREA]</p>
+                <h3>Receive your order</h3>
+                <p>
+                  {business.delivery_methods}. [TO BE CONFIRMED: delivery areas
+                  and fees]
+                </p>
               </div>
             </li>
           </ol>
@@ -213,11 +217,15 @@ export function Home({ data }) {
         <div className="container text-center">
           <h2 id="final-cta-title">Ready to order?</h2>
           <p className="mb-3">
-            Message us on WhatsApp to check availability and place your order.
+            Contact us to check availability and place your order.
           </p>
           <CTAButton href={business.primary_cta_link} variant="primary">
             {business.primary_cta_label}
           </CTAButton>
+          <p className="final-cta-phones">
+            {business.phone}
+            {business.phone_secondary && ` / ${business.phone_secondary}`}
+          </p>
         </div>
       </section>
     </main>

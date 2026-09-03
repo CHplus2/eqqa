@@ -1,10 +1,12 @@
 /*
   MINI BRAND SYSTEM
   -----------------
-  1. Logo treatment:    Simple text logo using heading font until a real logo is provided.
-  2. Primary colours:   Warm earth tones suggested as placeholders; [CONFIRM BRAND COLOURS].
-  3. Accent colour:     Warm coral used for CTAs; [CONFIRM BRAND COLOURS].
-  4. Background colours: Light cream paper (#FFFBF5) and warm white (#FFFFFF).
+  1. Logo treatment:    Text logo + leaf icon until the real Eqqa Enterprise logo file
+                        is provided. Logo meaning (confirmed): leaf = fresh/natural,
+                        arrow = business growth.
+  2. Primary colours:   Green — confirmed by beneficiary: green = freshness.
+  3. Accent colour:     Gold — confirmed by beneficiary: gold = quality and success.
+  4. Background colours: Soft fresh off-white (#F8FBF7) and white (#FFFFFF).
   5. Icon style:        Lucide outline icons, 1.5px stroke, consistent sizing.
   6. Spacing system:    4px base unit: 4, 8, 12, 16, 24, 32, 48, 64, 96.
   7. Heading font:      system-ui, 'Segoe UI', Roboto, sans-serif.
@@ -15,17 +17,17 @@
 */
 
 :root {
-  /* [CONFIRM BRAND COLOURS] - placeholder palette below */
-  --color-primary-900: #3d2b1f;
-  --color-primary-700: #5c4033;
-  --color-primary-500: #8b5e3c;
-  --color-accent: #d95d39;
-  --color-accent-hover: #bf4f2f;
-  --color-bg: #fffbf5;
+  /* Confirmed brand colours: green (freshness) + gold (quality & success) */
+  --color-primary-900: #1b4d2e;
+  --color-primary-700: #27693f;
+  --color-primary-500: #3a8f5a;
+  --color-accent: #b8860b;
+  --color-accent-hover: #966f08;
+  --color-bg: #f8fbf7;
   --color-surface: #ffffff;
-  --color-text: #3d2b1f;
-  --color-text-muted: #6b5b50;
-  --color-border: #e8dfd5;
+  --color-text: #21301f;
+  --color-text-muted: #55644f;
+  --color-border: #dfe8da;
   --color-warning-bg: #fff3cd;
   --color-warning-text: #664d03;
   --color-success: #2e7d32;

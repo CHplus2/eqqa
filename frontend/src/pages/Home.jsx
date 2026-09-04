@@ -183,8 +183,8 @@ export function Home({ data }) {
               <div>
                 <h3>Receive your order</h3>
                 <p>
-                  {business.delivery_methods}. [TO BE CONFIRMED: delivery areas
-                  and fees]
+                  {business.delivery_methods}.{" "}
+                  <span className="tbc">[TO BE CONFIRMED: delivery areas and fees]</span>
                 </p>
               </div>
             </li>

@@ -9,6 +9,17 @@ import {
 
 const API_URL = "http://127.0.0.1:8000/api/site-data/";
 
+// If the WhatsApp link is still unconfirmed, route the primary CTA to the
+// Contact page instead of a broken external URL.
+function normalizeBusiness(business) {
+  if (!business) return business;
+  const link = business.primary_cta_link || "";
+  if (link.includes("[")) {
+    return { ...business, primary_cta_link: "/contact" };
+  }
+  return business;
+}
+
 export function useSiteData() {
   const [data, setData] = useState({
     business: fallbackBusiness,
@@ -33,7 +44,7 @@ export function useSiteData() {
         const json = await response.json();
         if (!cancelled) {
           setData({
-            business: json.business || fallbackBusiness,
+            business: normalizeBusiness(json.business || fallbackBusiness),
             products: json.products || fallbackProducts,
             featured_products: json.featured_products || json.products || fallbackProducts,
             gallery: json.gallery || fallbackGallery,

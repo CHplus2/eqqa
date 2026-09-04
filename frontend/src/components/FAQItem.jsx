@@ -1,6 +1,21 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+// Highlight unconfirmed answers so placeholders read as intentional,
+// not as broken content.
+function renderAnswer(text) {
+  const parts = text.split(/(\[TO BE CONFIRMED[^\]]*\])/g);
+  return parts.map((part, i) =>
+    part.startsWith("[TO BE CONFIRMED") ? (
+      <span key={i} className="tbc">
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  );
+}
+
 export function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
 
@@ -17,7 +32,7 @@ export function FAQItem({ question, answer }) {
       </button>
       {open && (
         <div className="faq-answer">
-          <p>{answer}</p>
+          <p>{renderAnswer(answer)}</p>
         </div>
       )}
     </div>

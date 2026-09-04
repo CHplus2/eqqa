@@ -21,6 +21,7 @@ export function ProductCard({ product, business }) {
             <span>[REAL PHOTO NEEDED: {product.name}]</span>
           </div>
         )}
+        <span className="product-price-badge">{product.price}</span>
       </div>
       <div className="product-content">
         <h3 className="product-title">
@@ -41,7 +42,6 @@ export function ProductCard({ product, business }) {
           </p>
         ) : null}
         <div className="product-meta">
-          <span className="product-price">{product.price}</span>
           {availabilityPending ? (
             <span className="product-availability placeholder-text">
               Availability [TO BE CONFIRMED]

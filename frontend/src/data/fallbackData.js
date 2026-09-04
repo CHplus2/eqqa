@@ -33,7 +33,7 @@ export const fallbackBusiness = {
   achievement:
     "Champion, Kuih Cap competition (Sarawak district level), Wellbest Carnival 2025",
   primary_cta_label: "Order on WhatsApp",
-  primary_cta_link: "https://wa.me/[TO BE CONFIRMED]",
+  primary_cta_link: "/contact",
 };
 
 const productDescription =
